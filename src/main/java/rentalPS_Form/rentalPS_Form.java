@@ -120,7 +120,6 @@ public class rentalPS_Form extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtxtNama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtxtTelp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtxtEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -129,6 +128,7 @@ public class rentalPS_Form extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jtxtTelp = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         jbtnTambah = new javax.swing.JButton();
         jbtnEdit = new javax.swing.JButton();
@@ -136,6 +136,7 @@ public class rentalPS_Form extends javax.swing.JFrame {
         jbtnReset = new javax.swing.JButton();
         jbtnExit = new javax.swing.JButton();
         jbtnPrint = new javax.swing.JButton();
+        jbtnSearch = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -153,8 +154,6 @@ public class rentalPS_Form extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("No. Telp");
-
-        jtxtTelp.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Email");
@@ -187,6 +186,9 @@ public class rentalPS_Form extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jtxtTelp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jtxtTelp.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -209,9 +211,9 @@ public class rentalPS_Form extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jcmbPaket, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 220, Short.MAX_VALUE))
-                            .addComponent(jtxtTelp)
                             .addComponent(jtxtNama)
-                            .addComponent(jtxtAlamat))
+                            .addComponent(jtxtAlamat)
+                            .addComponent(jtxtTelp))
                         .addGap(128, 128, 128))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -226,7 +228,7 @@ public class rentalPS_Form extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jtxtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jtxtTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,37 +298,48 @@ public class rentalPS_Form extends javax.swing.JFrame {
             }
         });
 
+        jbtnSearch.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jbtnSearch.setText("Cari");
+        jbtnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbtnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnPrint, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnTambah, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jbtnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnHapus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnTambah, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnReset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnPrint, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jbtnTambah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtnEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jbtnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbtnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jbtnReset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbtnSearch)
+                .addGap(18, 18, 18)
+                .addComponent(jbtnHapus)
+                .addGap(18, 18, 18)
+                .addComponent(jbtnPrint)
+                .addGap(18, 18, 18)
+                .addComponent(jbtnExit)
+                .addGap(18, 18, 18))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -380,10 +393,8 @@ public class rentalPS_Form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTambahActionPerformed
-        if (jtxtNama.getText().length()==0 && jtxtTelp.getText().length()==0
-                && jtxtEmail.getText().length()==0 && jtxtAlamat.getText().length()==0){
-            JOptionPane.showMessageDialog(null, "Form Data Harus Terisi!");
-        }else{
+        if (jtxtNama.getText().length()!=0 && jtxtTelp.getText().length()!=0
+                && jtxtEmail.getText().length()!=0 && jtxtAlamat.getText().length()!=0){
             try{
             Class.forName("com.mysql.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataCon,username,password);
@@ -407,6 +418,9 @@ public class rentalPS_Form extends javax.swing.JFrame {
             catch(SQLException ex){
                 java.util.logging.Logger.getLogger(rentalPS_Form.class.getName()).log(java.util.logging.Level.SEVERE, null , ex);  
             }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Form Data Harus Terisi!");
         }
         
     }//GEN-LAST:event_jbtnTambahActionPerformed
@@ -429,6 +443,7 @@ public class rentalPS_Form extends javax.swing.JFrame {
         jtxtEmail.setText("");
         jtxtAlamat.setText("");
         jcmbPaket.setSelectedItem("");
+        updateDb();
     }//GEN-LAST:event_jbtnResetActionPerformed
 
     private void jbtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEditActionPerformed
@@ -530,6 +545,51 @@ public class rentalPS_Form extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnPrintActionPerformed
 
+    private void jbtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSearchActionPerformed
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            sqlConn = DriverManager.getConnection(dataCon,username,password);
+            pst = sqlConn.prepareStatement("SELECT * FROM rental , paket WHERE rental.nama LIKE '%" + jtxtNama.getText() +"%' AND rental.id_paket = paket.id_paket");
+                       
+            rs = pst.executeQuery();
+            
+            DefaultTableModel tbl = new DefaultTableModel();
+            
+            tbl.addColumn("id_rental");
+            tbl.addColumn("Nama");
+            tbl.addColumn("No_Telp");
+            tbl.addColumn("Email");
+            tbl.addColumn("Alamat");
+            tbl.addColumn("Paket");
+            tbl.addColumn("Harga");
+            tbl.addColumn("created_at");
+            
+            while(rs.next()){
+                tbl.addRow(new Object[] {
+                    rs.getInt("id_rental"),
+                    rs.getString("nama"),
+                    rs.getString("no_telp"),
+                    rs.getString("email"),
+                    rs.getString("alamat"),
+                    rs.getString("nama_paket"),
+                    rs.getInt("harga"),
+                    rs.getString("created_at"),
+                });
+                jTable1.setModel(tbl);
+
+            }
+            
+        }
+        catch(ClassNotFoundException ex){
+            java.util.logging.Logger.getLogger(rentalPS_Form.class.getName()).log(java.util.logging.Level.SEVERE, null , ex);   
+        }
+        catch(SQLException ex){
+            java.util.logging.Logger.getLogger(rentalPS_Form.class.getName()).log(java.util.logging.Level.SEVERE, null , ex);  
+        }
+        
+        
+    }//GEN-LAST:event_jbtnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -583,11 +643,12 @@ public class rentalPS_Form extends javax.swing.JFrame {
     private javax.swing.JButton jbtnHapus;
     private javax.swing.JButton jbtnPrint;
     private javax.swing.JButton jbtnReset;
+    private javax.swing.JButton jbtnSearch;
     private javax.swing.JButton jbtnTambah;
     private javax.swing.JComboBox<String> jcmbPaket;
     private javax.swing.JTextField jtxtAlamat;
     private javax.swing.JTextField jtxtEmail;
     private javax.swing.JTextField jtxtNama;
-    private javax.swing.JTextField jtxtTelp;
+    private javax.swing.JFormattedTextField jtxtTelp;
     // End of variables declaration//GEN-END:variables
 }
