@@ -5,6 +5,7 @@ Aplikasi Rental Sederhana Menggunakan Java Swing.
 
 - Menambah data ke Database
 - Mengedit data
+- Seach data
 - Menghapus, dan
 - Print
 
