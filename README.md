@@ -8,7 +8,7 @@ Aplikasi Rental Sederhana Menggunakan Java Swing.
 - Menghapus, dan
 - Print
 
-<p align="center"><img src="https://drive.google.com/uc?export=view&id=143kZp2RWbyl7W8_mOn_qFQa-qwIGLXJB width="400"></p>
+<p align="center"><img src="https://drive.google.com/thumbnail?id=43kZp2RWbyl7W8_mOn_qFQa-qwIGLXJB width="400"></p>
 
 ## Cara Setup
 
